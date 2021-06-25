@@ -11,10 +11,17 @@
 </template>
 
 <script>
-export default {};
+import axios from "axios";
+export default {
+  created() {
+    axios.get("http://localhost:3301/in_theaters").then(res => {
+      console.log(res);
+      callback(null, { list: res.data });
+    });
+  }
+};
 </script>
-
-<style scoped>
+<style scoped lang="scss">
 .container {
   margin: 0 auto;
 }
