@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "vue ssr",
+    title: "SSR",
     htmlAttrs: {
       lang: "en"
     },
@@ -18,10 +18,8 @@ export default {
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
   },
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-    // 项目里要用的 CSS 文件
-    "@/assets/style/initialize.css"
-  ],
+  css: ["@/assets/style/initialize.css"],
+  loading: { color: "#3B8070" },
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: ["@/plugins/mock.js"],
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -30,8 +28,13 @@ export default {
   buildModules: [],
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: ["@nuxtjs/axios"],
-  // Build Configuration: https://go.nuxtjs.dev/config-build
+  // 避免重复打包  Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    vendor: ["axios"]
+    vendor: ["axios", "mockjs"]
   }
+  // axios: {
+  //   // 是否允许跨域
+  //   proxy: true
+  // },
+  // proxy: {}
 };
