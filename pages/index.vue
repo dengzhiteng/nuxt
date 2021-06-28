@@ -7,6 +7,9 @@
 
     <nuxt-link to="/goods">goods</nuxt-link>
     <nuxt-link to="/goods/details">goods details</nuxt-link>
+    <p>
+      他问我
+    </p>
   </div>
 </template>
 
@@ -14,15 +17,17 @@
 import axios from "axios";
 export default {
   created() {
-    axios.get("http://localhost:3301/in_theaters").then(res => {
-      console.log(res);
-      callback(null, { list: res.data });
+    axios.get("/user").then(res => {
+      console.log(res.data);
     });
   }
 };
 </script>
-<style scoped lang="scss">
+<style scoped lang="less">
 .container {
   margin: 0 auto;
+  p {
+    color: red;
+  }
 }
 </style>
